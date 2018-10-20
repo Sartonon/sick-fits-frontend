@@ -8,7 +8,6 @@ class MyApp extends App {
     let pageProps = {};
 
     if (Component.getInitialProps) {
-      console.log(Component.getInitialProps());
       pagerProps = await Component.getInitialProps(ctx);
     }
 
