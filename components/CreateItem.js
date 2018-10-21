@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import styled from 'styled-components';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
@@ -24,6 +25,19 @@ const CREATE_ITEM_MUTATION = gql`
       id
     }
   }
+`;
+
+const StyledImage = styled.img`
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+`;
+
+const ImageContainer = styled.div`
+  height: 100px;
+  width: 100px;
+  margin: 1rem;
+  background-color: white;
 `;
 
 class CreateItem extends Component {
@@ -92,9 +106,11 @@ class CreateItem extends Component {
                   // value={this.state.image}
                   onChange={this.uploadFile}
                 />
-                {this.state.image && (
-                  <img src={this.state.image} alt="Upload Preview" />
-                )}
+                <ImageContainer>
+                  {this.state.image && (
+                    <StyledImage src={this.state.image} alt="Upload Preview" />
+                  )}
+                </ImageContainer>
               </label>
               <label htmlFor="title">
                 Title
