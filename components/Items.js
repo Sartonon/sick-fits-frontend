@@ -39,7 +39,7 @@ class Items extends Component {
         <p>Items!</p>
         <Query
           query={ALL_ITEMS_QUERY}
-          // fetchPolicy="network-only"
+          fetchPolicy="network-only"
           variables={{ skip: this.props.page * perPage - perPage, first: 4 }}
         >
           {({ data, error, loading }) => {
